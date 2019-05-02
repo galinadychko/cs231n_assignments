@@ -2,6 +2,11 @@ import numpy as np
 from six.moves import cPickle as pickle
 import os
 
+#####################################################################
+# TODO:                                                             #
+# Write documentation                                               #
+#####################################################################
+
 
 project_path = "/home/administrator/workplace/selfdevelopment/courses/project_cs231n"
 # project_path = os.path.abspath("../..")
@@ -75,9 +80,8 @@ def get_CIFAR10_data(num_training=49000, num_validation=1000, num_test=1000, sub
     Y_test = Y_test[cut_list]
 
     if subtract_mean:
-        X_train -= np.mean(X_train, axis=0)
-        X_val -= np.mean(X_val, axis=0)
-        X_test -= np.mean(X_test, axis=0)
+        train_mean = np.mean(X_train, axis=0)
+        X_train -= train_mean; X_val -= train_mean; X_test -= train_mean
 
     del cut_list
     return dict(X_train=X_train.transpose(0, 3, 1, 2), Y_train=Y_train,
