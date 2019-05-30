@@ -2,15 +2,8 @@ import numpy as np
 from six.moves import cPickle as pickle
 import os
 
-#####################################################################
-# TODO:                                                             #
-# Write documentation                                               #
-#####################################################################
-
-
-project_path = "/home/administrator/workplace/selfdevelopment/courses/project_cs231n"
-# project_path = os.path.abspath("../..")
-
+project_folder = os.getcwd()
+project_folder += "/../.."
 
 def load_pickle(f):
     """
@@ -65,7 +58,7 @@ def get_CIFAR10_data(num_training=49000, num_validation=1000, num_test=1000, sub
     :param subtract_mean: bool; if normalize datasets according to each mean
     :return:
     """
-    X_train, Y_train, X_test, Y_test = load_CIFAR10(project_path+"/cifar-10-batches-py")
+    X_train, Y_train, X_test, Y_test = load_CIFAR10(project_folder+"/data")
 
     cut_list = list(range(num_training, num_training + num_validation))
     X_val = X_train[cut_list]
